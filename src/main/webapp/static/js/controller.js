@@ -1,5 +1,5 @@
 import {dataHandler} from "./dataHandler.js";
-import {cartView} from "./view.js";
+import {getPrice} from "./domHandler.js";
 export {addEventCartButtons};
 let buttons = document.querySelectorAll(".cart-button");
 
@@ -8,7 +8,7 @@ function addEventCartButtons (){
         button.addEventListener("click", function () {
             let buttonId = button.getAttribute("buttonId");
             dataHandler.fetchProductId(buttonId);
-            cartView(buttonId);
+            getPrice(buttonId)
         })
     }
 }
