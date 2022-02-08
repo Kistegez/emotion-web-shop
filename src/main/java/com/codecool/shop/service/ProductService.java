@@ -2,8 +2,11 @@ package com.codecool.shop.service;
 
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
+import com.codecool.shop.model.Supplier;
 
 import java.util.List;
 
@@ -25,5 +28,15 @@ public class ProductService{
         return productDao.getBy(category);
     }
 
+    public List<ProductCategory> getAllCategories(){
+        return productCategoryDao.getAll();
+    }
 
+    public List<Supplier> getAllSuppliers() {
+        return SupplierDaoMem.getInstance().getAll();
+    }
+
+    public List<Product> getFilteredProducts(String categoryId, String supplierId) {
+        return ProductDaoMem.getInstance().getAll();
+    }
 }
