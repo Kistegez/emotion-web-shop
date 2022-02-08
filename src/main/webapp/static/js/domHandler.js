@@ -7,7 +7,8 @@ function getPrice(buttonId) {
         let priceId = price.getAttribute("priceId");
         if (priceId === buttonId) {
             let priceInt = price.getAttribute("price");
-            cartView(priceInt)
+            return priceInt
         }
     }
 }
+
