@@ -25,6 +25,8 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <script type=module src='/static/js/main.js' defer></script>
 </head>
@@ -35,9 +37,14 @@
     <h1>Codecool Shop</h1>
 </div>
 <div class="container">
-    <form action="/payment">
-        <input type="submit" value="payment" />
-    </form>
+    <div class="header">
+        <form action="/payment">
+            <input type="submit" value="payment" />
+        </form>
+        <div id="cart">
+            <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
+        </div>
+    </div>
     <div class="card">
         <strong th:text="${category.name}">Category Title</strong>
     </div>
