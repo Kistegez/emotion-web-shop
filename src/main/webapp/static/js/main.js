@@ -21,7 +21,7 @@ function addClickEventCartButtons(){
 }
 
 async function fetchUrl(productId) {
-    url = `/?product_id=${productId}`;
+    url = `/cart?product_id=${productId}`;
     await fetch(url);
 }
 

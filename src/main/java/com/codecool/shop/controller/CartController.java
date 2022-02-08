@@ -20,8 +20,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(urlPatterns = {"/"})
-public class ProductController extends HttpServlet {
+@WebServlet(urlPatterns = {"/cart"})
+public class CartController extends HttpServlet {
+    Cart cart = new Cart();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,12 +34,14 @@ public class ProductController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("category", productService.getProductCategory(1));
         context.setVariable("products", productService.getProductsForCategory(1));
-        // // Alternative setting of the template context
-        // Map<String, Object> params = new HashMap<>();
-        // params.put("category", productCategoryDataStore.find(1));
-        // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
-        // context.setVariables(params);
 
         engine.process("product/index.html", context, resp.getWriter());
+        // Add product using product id to cart
+
+        String cartProductId = req.getParameter("product_id");
+        if (cartProductId != null){
+            int cartProductIntId = Integer.parseInt(cartProductId);
+            cart.add(cartProductIntId);
+        }
     }
 }
