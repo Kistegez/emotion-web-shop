@@ -38,5 +38,6 @@ public class ProductService{
 
     public List<Product> getFilteredProducts(String categoryId, String supplierId) {
         return ProductDaoMem.getInstance().getAll();
+
     }
 }
