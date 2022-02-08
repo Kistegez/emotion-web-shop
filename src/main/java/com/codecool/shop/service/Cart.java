@@ -15,9 +15,8 @@ public class Cart {
     public void add(int id){
         Product product = ProductDaoMem.getInstance().find(id);
         String name = product.getName();
-
             int quantity = products.getOrDefault(name, 0) + 1;
             products.put(name, quantity);
-
+        System.out.println(products);
     }
 }
