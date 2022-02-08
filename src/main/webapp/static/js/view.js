@@ -1,5 +1,6 @@
 export {cartView}
+import {getPrice} from "./domHandler.js";
 
-function cartView(price){
-    console.log(price + "LOOOOOOOOOOOl")
+function cartView(buttonId){
+    let price = getPrice(buttonId)
 }
