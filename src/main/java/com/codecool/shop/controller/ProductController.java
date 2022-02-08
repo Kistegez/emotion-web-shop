@@ -4,6 +4,8 @@ import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.model.BaseModel;
+import com.codecool.shop.service.Cart;
 import com.codecool.shop.service.ProductService;
 import com.codecool.shop.config.TemplateEngineUtil;
 import org.thymeleaf.TemplateEngine;
@@ -36,7 +38,15 @@ public class ProductController extends HttpServlet {
         // params.put("category", productCategoryDataStore.find(1));
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
-        engine.process("product/index.html", context, resp.getWriter());
-    }
 
+        engine.process("product/index.html", context, resp.getWriter());
+        // Add product using product id to cart
+        String cartProductId = req.getParameter("product_id");
+        if (cartProductId != null){
+            int cartProductIntId = Integer.parseInt(cartProductId);
+            Cart cart = new Cart();
+            cart.add(cartProductIntId);
+        }
+
+    }
 }

@@ -19,11 +19,8 @@ public class ProductService{
     public ProductCategory getProductCategory(int categoryId){
         return productCategoryDao.find(categoryId);
     }
-
     public List<Product> getProductsForCategory(int categoryId){
         var category = productCategoryDao.find(categoryId);
         return productDao.getBy(category);
     }
-
-
 }
