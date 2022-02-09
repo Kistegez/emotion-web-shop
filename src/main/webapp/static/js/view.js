@@ -1,5 +1,4 @@
-export {cartView};
-export {showModal};
+export {cartView,showModal,showProducts};
 import {getPrice} from "./domHandler.js";
 
 function cartView(buttonId){
