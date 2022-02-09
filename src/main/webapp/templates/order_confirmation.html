@@ -8,97 +8,22 @@
     <script src='/static/js/main.js' defer></script>
 </head>
 <body>
-
 <section class="order_confirmation">
-    <section class="deliver_container">
-        <div class="deliver_title">
-            <div class="deliver_title_content">
-                <h3 class="deliver_headline">
-                    Delivery options</h3>
-            </div>
-        </div>
-        <div class="deliver_body">
-            <section >
+<div class="side">
 
-                    <div class="delivery_company">
-                        <label for="standard-gross1" class="delivery_mode-select1">
-                            <input type="radio" class="delivery_mode_input" id="standard-gross1" name="delivery_method" value="standard-gross1">
-                            <label for="standard-gross1" class="delivery_mode_select"></label>
-                            <div class="deliveryMode_logo">
-                                <img src="https://jalohelsinki.com/wp-content/uploads/2021/03/gls-logo.png" title="GLS" alt="GLS" height="30">
-                            </div>
-                            <span class="deliveryCost">$12</span>
-                        </label>
-                        <span class="deliveryTime">(3-5 workday)</span>
-                    </div>
-
-
-
-                    <div class="delivery_company">
-                        <label for="standard-gross2" class="delivery_mode-select">
-                            <input type="radio" class="delivery_mode_input" id="standard-gross2" name="delivery_method" value="standard-gross2">
-                            <label for="standard-gross2" class="delivery_mode_select"></label>
-                            <div class="deliveryMode_logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/2560px-DHL_Logo.svg.png" title="DHL" alt="DHL" height="20">
-                            </div>
-                        <span class="deliveryCost">$15 </span>
-                        </label>
-                        <span class="deliveryTime">(2-3 workdays)</span>
-                    </div>
-
-
-
-                    <div class="delivery_company">
-                        <label for="standard-gross3" class="delivery_mode-select">
-                            <input type="radio" class="delivery_mode_input" id="standard-gross3" name="delivery_method" value="standard-gross3">
-                            <label for="standard-gross3" class="delivery_mode_select"></label>
-                            <div class="deliveryMode_logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/1200px-UPS_Logo_Shield_2017.svg.png" title="UPS" alt="UPS" height="30">
-                            </div>
-                            <span class="deliveryCost">$10</span>
-                        </label>
-                        <span class="deliveryTime">(3-5 workdays)</span>
-                    </div>
-
-            </section>
-        </div>
-
-
-    </section>
     <section class="billing_information">
-
-        <div class="billing_as_company">
-            <div class="billing_as_company_title">
-                <h5 class="deliver_headline">
-                    Buying as company</h5>
-            </div>
-            <div class="billing_as_company_body">
-                <input type="radio" class="hr-form__radio" id="company_true" name="billing_company" value="true">
-                <label for="company_true" class="company_igen">Igen</label>
-                <input type="radio" class="hr-form__radio" id="company_false" name="billing_company" value="false" checked="">
-                <label for="company_false" class="company_nem">Nem</label>
-            </div>
-        </div>
-        <div class="company_name">
-            <input id="billingCompanyName" type="text" value="">
-            <span class="text">Company name</span>
-        </div>
-        <div class="comapny_number">
-            <input id="billingTaxNumber" type="text" value="">
-            <span class="text">Tax number</span>
-        </div>
-
+        <div class="user_table">
 
         <div class="billing_title">
-            <h3 class="billing_title_headliner">Billing information</h3>
+            <h3 class="billing_title_headliner">User informations</h3>
         </div>
         <div class="billing_body">
 
             <div class="calling_container">
-                <div class="calling_title">
-                    <span class="text">Calling</span>
+                <div class="input">
+                    <span class="text">Calling:</span>
                 </div>
-                <div class="calling_body">
+                <div class="input">
                     <input id="Mrs" name="billingTitleCode" type="radio" value="0002"><label for="Mrs"></label>
                     <label for="Mrs" class="calling">Sir</label>
                     <input id="Mr" name="billingTitleCode" type="radio" value="0001"><label for="Mr"></label>
@@ -107,13 +32,13 @@
             </div>
 
         <div class="name_container">
-            <div class="name_input">
+            <div class="input">
                 <input id="first_name" type="text" value="">
                 <label for="first_name">
                     <span class="name_text">Firstname</span>
                 </label>
             </div>
-            <div class="name_input">
+            <div class="input">
                 <input id="last_name" type="text" value="">
                 <label for="last_name">
                     <span class="name_text">Lastname</span>
@@ -121,20 +46,20 @@
             </div>
         </div>
         <div class="adress">
-            <div class="street">
+            <div class="input">
                 <input id="street_input" type="text" value="" maxlength="524288">
                 <label for="street_input">
                     <span class="street_text">Street, House number</span>
                 </label>
             </div>
             <div class="city_and_postcode">
-                <div class="postcode">
+                <div class="input">
                     <input id="postcode_input" type="text" value="">
                     <label for="postcode_input">
                         <span class="postcode_text">Postcode</span>
                     </label>
                 </div>
-                <div class="city">
+                <div class="input">
                     <input id="city_input" type="text" value="">
                     <label for="city_input" class="hr-form__label ">
                         <span class="city_text">City</span>
@@ -143,13 +68,19 @@
             </div>
         </div>
         <div class="phone_and_country">
-            <div class="phone_number">
-                <input id="phone_input" name="billingTelephoneNumber" class="hr-form__input js-floatingLabel " type="text" value="">
+            <div class="input">
+                <input id="phone_input" type="text" value="">
                 <label for="phone_input" class="hr-form__label ">
                     <span class="phone_text">Phone</span>
                 </label>
             </div>
-            <div class="country">
+            <div class="input">
+                <input id="email_input"  type="text" value="">
+                <label for="email_input" class="hr-form__label ">
+                    <span class="email_text">E-mail</span>
+                </label>
+            </div>
+            <div class="input">
                 <select id="country_choose">
                     <option value=""> </option>
                     <option value="AT">Austria</option>
@@ -181,15 +112,100 @@
             </div>
         </div>
     </div>
+            <section class="company_information">
+
+                <div class="billing_as_company">
+                    <div class="billing_as_company">
+                        <h5 class="deliver_headline">
+                            Buying as company:</h5>
+
+                        <div class="billing_as_company_body">
+                            <input type="radio" class="hr-form__radio" id="company_true" name="billing_company" value="true">
+                            <label for="company_true" class="company_igen">Yes</label>
+                            <input type="radio" class="hr-form__radio" id="company_false" name="billing_company" value="false" checked="">
+                            <label for="company_false" class="company_nem">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="billing_input">
+                    <div class="input">
+                        <input id="billingCompanyName" type="text" value="">
+                        <span class="text">Company name</span>
+                    </div>
+                    <div class="input">
+                        <input id="billingTaxNumber" type="text" value="">
+                        <span class="text">Tax number</span>
+                    </div>
+                </div>
+            </section>
+    </div>
     </section>
-    <section class="next-pages">
-        <div class="payment">
-            <h3 class="payment_title">Payment</h3>
-            <button id="save" type="submit">
-                <span>Go go go</span>
-            </button>
+    <section class="deliver_container">
+        <div class ="deliver_table">
+        <div class="deliver_title">
+            <div class="deliver_title_content">
+                <h3 class="deliver_headline">
+                    Delivery options</h3>
+            </div>
         </div>
+        <div class="deliver_body">
+            <section >
+
+                <div class="delivery_company">
+                    <label for="standard-gross1" class="delivery_mode-select1">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross1" name="delivery_method" value="standard-gross1">
+                        <label for="standard-gross1" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Logo-GLS-1080x1080px.svg/2048px-Logo-GLS-1080x1080px.svg.png" title="GLS" alt="GLS" height="40">
+                        </div>
+                        <span class="deliveryCost">$12</span>
+                    </label>
+                    <span class="deliveryTime">(3-5 workday)</span>
+                </div>
+
+
+
+                <div class="delivery_company">
+                    <label for="standard-gross2" class="delivery_mode-select">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross2" name="delivery_method" value="standard-gross2">
+                        <label for="standard-gross2" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/2560px-DHL_Logo.svg.png" title="DHL" alt="DHL" height="20">
+                        </div>
+                        <span class="deliveryCost">$15 </span>
+                    </label>
+                    <span class="deliveryTime">(2-3 workdays)</span>
+                </div>
+
+
+
+                <div class="delivery_company">
+                    <label for="standard-gross3" class="delivery_mode-select">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross3" name="delivery_method" value="standard-gross3">
+                        <label for="standard-gross3" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/1200px-UPS_Logo_Shield_2017.svg.png" title="UPS" alt="UPS" height="30">
+                        </div>
+                        <span class="deliveryCost">$10</span>
+                    </label>
+                    <span class="deliveryTime">(3-5 workdays)</span>
+                </div>
+
+            </section>
+        </div>
+
+        </div>
+        <section class="next-pages">
+            <button id="save" type="submit">
+                <span>Payment</span>
+            </button>
+        </section>
     </section>
+    </div>
+    <div class="footer">
+
+
+    </div>
 </section>
 </body>
 </html>
