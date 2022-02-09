@@ -9,7 +9,8 @@ let cart = document.getElementById("cart")
 
 
 function addEventCartButtons (){
-    cart.addEventListener("click", cartModal() )
+    cart.addEventListener("click",function () {
+        cartModal() })
     for (let button of buttons){
         button.addEventListener("click", function () {
             let buttonId = button.getAttribute("buttonId");
