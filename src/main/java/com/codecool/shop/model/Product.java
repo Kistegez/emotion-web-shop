@@ -18,6 +18,14 @@ public class Product extends BaseModel {
         this.setProductCategory(productCategory);
     }
 
+    public Product(Product product) {
+        super(product.getName(), product.getDescription());
+        this.defaultPrice = product.getDefaultPrice();
+        this.defaultCurrency = product.getDefaultCurrency();
+        this.productCategory = product.getProductCategory();
+        this.supplier = product.getSupplier();
+    }
+
     public BigDecimal getDefaultPrice() {
         return defaultPrice;
     }
