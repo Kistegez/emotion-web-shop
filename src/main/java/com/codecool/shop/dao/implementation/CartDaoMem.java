@@ -30,16 +30,33 @@ public class CartDaoMem implements CartDao {
 
     @Override
     public void edit(int value, int id) {
-
+        CartProduct product = this.cartList.stream()
+                .filter(cartProduct -> cartProduct.getId() == id)
+                .findFirst().get();
+        if (product.getAmount() == 1 && value == -1){
+            remove(id);
+        }
+        else {
+            int quantity = product.getAmount();
+            product.setAmount(quantity + value);
+        }
     }
 
     @Override
     public Product find(int id) {
-        return null;
+        CartProduct product = this.cartList.stream()
+                .filter(cartProduct -> cartProduct.getId() == id)
+                .findAny()
+                .orElse(null);
+        return product;
     }
 
     @Override
     public void remove(int id) {
+        CartProduct product = this.cartList.stream()
+                .filter(cartProduct -> cartProduct.getId() == id)
+                .findFirst().get();
+        cartList.remove(product);
 
     }
 
