@@ -29,11 +29,11 @@ function createOneNew(data){
         </tr>`
 }
 function showProducts(products) {
+    let content = ""
     for (let product of products) {
-        console.log(product)
+        content += buildCard(product);
     }
-
-    //document.getElementById("products").innerHTML = productContent;
+    document.getElementById("products").innerHTML = content;
 }
 
 function buildCard(product) {
