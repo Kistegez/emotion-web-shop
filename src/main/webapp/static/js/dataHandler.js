@@ -1,7 +1,16 @@
+export {cartModal};
+import {showModal} from "./view.js";
+
+
 export let dataHandler = {
     fetchProductId: async function (productId) {
         await urlResponse(`/cart?product_id=${productId}`);
     }
+}
+async function cartModal() {
+    let datas = await getResponse("/api/review_cart")
+    showModal(datas);
+
 }
 
 async function urlResponse(url){
