@@ -43,9 +43,9 @@
 </div>
 <div class="container">
     <div class="header">
-        <div id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
+        <button type="button" id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
             <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
-        </div>
+        </button>
     </div>
 
     <div th:replace="product/cart_modal.html :: copy"></div>
