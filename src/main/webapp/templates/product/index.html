@@ -28,7 +28,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-    <script type=module src='/static/js/main.js' defer></script>
+    <script type="text/javascript" src='/static/js/main.js' defer></script>
+    <script type="text/javascript" src='/static/js/controller.js' defer></script>
+    <script type="text/javascript" src='/static/js/dataHandler.js' defer></script>
+    <script type="text/javascript" src='/static/js/domHandler.js' defer></script>
+    <script type="text/javascript" src='/static/js/view.js' defer></script>
+
 </head>
 
 <body>
@@ -38,13 +43,14 @@
 </div>
 <div class="container">
     <div class="header">
-        <form action="/payment">
-            <input type="submit" value="payment" />
-        </form>
-        <div id="cart">
+        <div id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
             <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
         </div>
     </div>
+
+    <div th:replace="product/cart_modal.html :: copy"></div>
+
+
     <div class="card">
         <strong th:text="${category.name}">Category Title</strong>
     </div>
