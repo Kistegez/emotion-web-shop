@@ -1,0 +1,65 @@
+.order_confirmation{
+
+}
+
+.delivery_mode-select{
+    display: flex;
+    margin-top: 35px;
+
+}
+.delivery_mode-select1{
+    display: flex;
+}
+
+.deliveryMode_logo{
+
+    padding-right: 20px;
+}
+
+.deliveryCost{
+    margin-top: 5px;
+}
+.deliveryTime{
+    padding-left: 20px;
+
+}
+
+.billing_information{
+
+}
+
+.billing_title{
+
+}
+
+.billing_body{
+
+}
+
+.calling_container{
+
+}
+
+.calling_body{
+
+}
+
+.name_container{
+
+}
+
+.adress{
+
+}
+
+.city_and_postcode{
+
+}
+
+.phone_and_country{
+
+}
+
+.next-pages{
+
+}
