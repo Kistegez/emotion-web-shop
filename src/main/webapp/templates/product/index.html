@@ -26,7 +26,7 @@
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-    <script src='/static/js/main.js' defer></script>
+    <script type="module" src='/static/js/main.js' defer></script>
 </head>
 
 <body>
@@ -34,12 +34,23 @@
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
 </div>
-
-<div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+<div class="card">
+    <div class="column px-1">
+        <strong>Category: </strong>
+        <select id="categories" >
+            <option value="0">All</option>
+            <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getName()}">
+            </option>
+        </select>
     </div>
-
+    <div class="column px-1">
+        <strong>Supplier: </strong>
+        <select id="suppliers">
+            <option value="0">All</option>
+            <option th:each="supplier : ${suppliers}" th:value="${supplier.getId()}" th:text="${supplier.getName()}"></option>
+        </select>
+    </div>
+</div>
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
