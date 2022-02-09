@@ -1,10 +1,13 @@
 package com.codecool.shop.controller;
 
+import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.BaseModel;
+import com.codecool.shop.model.Product;
 import com.codecool.shop.service.Cart;
 import com.codecool.shop.service.ProductService;
 import com.codecool.shop.config.TemplateEngineUtil;
@@ -22,14 +25,18 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = {"/cart"})
 public class CartController extends HttpServlet {
-    Cart cart = new Cart();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String cartProductId = req.getParameter("product_id");
-        if (cartProductId != null){
-            int cartProductIntId = Integer.parseInt(cartProductId);
-            cart.add(cartProductIntId);
+        if (cartProductId != null) {
+            Product product = ProductDaoMem
+                    .getInstance()
+                    .find(Integer.parseInt(cartProductId));
+            CartDao cart = CartDaoMem.getInstance();
+            if (cart.find(product.getId()) != null) {
+                cart.add(product, 1);
+            }
         }
     }
 }
