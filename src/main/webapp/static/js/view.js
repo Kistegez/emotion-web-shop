@@ -5,7 +5,6 @@ function cartView(buttonId){
     let price = getPrice(buttonId)
 }
 
-
 function showModal(datas) {
     let content = ""
     for (let data of datas){
