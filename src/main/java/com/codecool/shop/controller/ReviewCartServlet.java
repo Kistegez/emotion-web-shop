@@ -25,7 +25,8 @@ public class ReviewCartServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         List<CartProduct> cartProducts = CartDaoMem.getInstance().getAll();
-        out.println(new Gson().toJson(cartProducts));
-        out.flush();
+        String cartProductsToJson = new Gson().toJson(cartProducts);
+        out.println(cartProductsToJson);
+
     }
 }
