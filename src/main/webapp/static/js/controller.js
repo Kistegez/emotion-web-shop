@@ -1,5 +1,5 @@
 import {dataHandler} from "./dataHandler.js";
-import {cartView} from "./view";
+import {cartView} from "./view.js";
 export {addEventCartButtons};
 let buttons = document.querySelectorAll(".cart-button");
 
