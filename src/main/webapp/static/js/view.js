@@ -1,5 +1,6 @@
-export {showModal};
+export {cartView,showModal,showProducts}
 
+import {getPrice} from "./domHandler.js";
 
 
 function showModal(datas) {
@@ -24,4 +25,31 @@ function createOneNew(data){
                 <h2 class= "edit-button" data-value="-1" class="edit"> -</h2>
             </td>
         </tr>`
+}
+function showProducts(products) {
+    let content = ""
+    for (let product of products) {
+        content += buildCard(product);
+    }
+    document.getElementById("products").innerHTML = content;
+}
+
+function buildCard(product) {
+    return `<div class="col col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="" src="/static/img/product_${product.id}.jpg" alt="http://placehold.it/400x250/000/fff"/>
+                    <div class="card-header">
+                        <h4 class="card-title">${product.name}</h4>
+                        <p class="card-text">${product.description}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p class="lead">${product.defaultPrice} ${product.defaultCurrency}</p>
+                        </div>
+                        <div class="card-text">
+                        <button data-btn-id="${product.id}" class="btn btn-success cart-btn">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
 }

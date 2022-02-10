@@ -1,9 +1,10 @@
-import {addEventCartButtons} from "./controller.js";
+import {setupEventListeners} from "./controller.js";
 
 function main(){
-    addEventCartButtons();
+    setupEventListeners();
 }
 
 
 main();
+
 

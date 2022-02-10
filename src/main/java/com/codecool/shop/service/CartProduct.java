@@ -11,7 +11,7 @@ public class CartProduct extends Product {
     private int amount;
 
     public CartProduct(Product product, int amount) {
-        super(product.getName(), product.getDefaultPrice(), product.getDefaultCurrency().toString(), product.getDescription(), product.getProductCategory(), product.getSupplier());
+        super(product);
         this.amount = amount;
         this.id = product.getId();
     }
