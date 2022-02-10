@@ -139,3 +139,28 @@ h1{
     font-family: "Brush Script MT";
     font-size: 40px;
 }
+.modal-content{
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.edit-button{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#cart-checkout{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.close_button{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+}

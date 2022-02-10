@@ -12,7 +12,7 @@ function showModal(datas) {
 function createOneNew(data){
     return `<tr>
             <td class="w-25">
-                <img src="/static/img/product_${data.id}.jpg"  alt="${data.name} + '.jpg'" class="image" >
+                <img src="/static/img/product_${data.id}.jpg"  alt="${data.name} + '.jpg'" class="image" width="100" >
             </td>
             <td>${data.name}</td>
             <td>${data.defaultPrice} ${data.defaultCurrency}</td>
