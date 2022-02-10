@@ -1,9 +1,7 @@
-export {cartView,showModal,showProducts};
+export {cartView,showModal,showProducts}
+
 import {getPrice} from "./domHandler.js";
 
-function cartView(buttonId){
-    let price = getPrice(buttonId)
-}
 
 function showModal(datas) {
     let content = ""
@@ -23,8 +21,8 @@ function createOneNew(data){
             <td class="qty"><p id=${"amountId" + data.id} type="text" class="amount form-control" >${data.amount}</p></td>
             <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} data-default-currency=${data.defaultCurrency}>${data.defaultPrice * data.amount} ${data.defaultCurrency}</td>
             <td data-product-id=${data.id}>
-                <h2 data-value="1" class="edit">+</h2>
-                <h2 data-value="-1" class="edit"> -</h2>
+                <h2 class= "edit-button" data-value="1" class="edit">+</h2>
+                <h2 class= "edit-button" data-value="-1" class="edit"> -</h2>
             </td>
         </tr>`
 }
