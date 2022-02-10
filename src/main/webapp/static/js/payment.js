@@ -28,5 +28,33 @@ function hidePaying() {
     }
 }
 
-setupEventListener();
+async function showCart() {
+    let products = await getCartProducts();
+    let content = "";
+    let totalPrice = 0;
+    for (let product of products) {
+        content += showProducts(product);
+    }
+    document.getElementById("payment-cart").innerHTML = content;
+}
 
+async function getCartProducts() {
+    let response = await fetch("/api/review_cart");
+    return response.json();
+}
+
+function showProducts(data) {
+    return `<tr>
+            <td class="w-25">
+                <img src="/static/img/product_${data.id}.jpg"  alt="${data.name} + '.jpg'" class="image" >
+            </td>
+            <td>${data.name}</td>
+            <td>${data.defaultPrice} ${data.defaultCurrency}</td>
+            <td class="qty"><p id=${"amountId" + data.id} type="text" class="amount form-control" >${data.amount}</p></td>   
+            <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} class="product-total-price" data-default-currency=${data.defaultCurrency}>${(data.defaultPrice * data.amount).toFixed(2)} ${data.defaultCurrency}</td>
+        </tr>`
+}
+
+
+showCart();
+setupEventListener();
