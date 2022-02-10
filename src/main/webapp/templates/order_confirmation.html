@@ -3,6 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Payment</title>
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="/static/css/payment.css" />
     <script src='/static/js/payment.js' defer></script>
@@ -33,13 +52,13 @@
 
         <div class="name_container">
             <div class="input">
-                <input id="first_name" type="text" value="">
+                <input id="first_name" type="text" value="" placeholder="Bela">
                 <label for="first_name">
                     <span class="name_text">Firstname</span>
                 </label>
             </div>
             <div class="input">
-                <input id="last_name" type="text" value="">
+                <input id="last_name" type="text" value="" placeholder="Minta">
                 <label for="last_name">
                     <span class="name_text">Lastname</span>
                 </label>
@@ -47,20 +66,20 @@
         </div>
         <div class="adress">
             <div class="input">
-                <input id="street_input" type="text" value="" maxlength="524288">
+                <input id="street_input" type="text" value="" maxlength="524288" placeholder="Nagymezo utca 44.">
                 <label for="street_input">
                     <span class="street_text">Street, House number</span>
                 </label>
             </div>
             <div class="city_and_postcode">
                 <div class="input">
-                    <input id="postcode_input" type="text" value="">
+                    <input id="postcode_input" type="text" value="" placeholder="1087">
                     <label for="postcode_input">
                         <span class="postcode_text">Postcode</span>
                     </label>
                 </div>
                 <div class="input">
-                    <input id="city_input" type="text" value="">
+                    <input id="city_input" type="text" value="" placeholder="Budapest">
                     <label for="city_input" class="hr-form__label ">
                         <span class="city_text">City</span>
                     </label>
@@ -69,13 +88,13 @@
         </div>
         <div class="phone_and_country">
             <div class="input">
-                <input id="phone_input" type="text" value="">
+                <input id="phone_input" type="text" value="" placeholder="+36 70 1234 567">
                 <label for="phone_input" class="hr-form__label ">
                     <span class="phone_text">Phone</span>
                 </label>
             </div>
             <div class="input">
-                <input id="email_input"  type="text" value="">
+                <input id="email_input"  type="text" value="" placeholder="bela123@minta.com">
                 <label for="email_input" class="hr-form__label ">
                     <span class="email_text">E-mail</span>
                 </label>
@@ -195,17 +214,18 @@
         </div>
 
         </div>
-        <section class="next-pages">
-            <button id="save" type="submit">
+        <section  id="next-pages">
+            <button type="button" id="save" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#paymentModal" >
                 <span>Payment</span>
             </button>
+            <div th:replace="product/payment_modal.html :: copy2"></div>
         </section>
+
     </section>
     </div>
-    <div class="footer">
-
-
     </div>
+
+
 </section>
 </body>
 </html>
