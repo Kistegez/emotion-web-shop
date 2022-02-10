@@ -43,6 +43,7 @@ async function getCartProducts() {
     return response.json();
 }
 
+
 function showProducts(data) {
     return `<tr>
             <td class="w-25">
