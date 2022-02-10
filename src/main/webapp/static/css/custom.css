@@ -1,6 +1,31 @@
-.deliver_body{
+body{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+}
+
+h1{
+    font-family: "Brush Script MT";
+    font-size: 180px;
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
 
 }
+
+
+#title{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+
+
+}
+.cart-button{
+    background-color: #ffd800;
+    color: black;
+    border: 2px solid #212529;
+    border-radius: 35px;
+}
+
 
 
 .glyphicon {
@@ -44,7 +69,7 @@
 }
 .item.list-group-item:nth-of-type(odd)
 {
-    background: #eeeeee;
+    background: #212529;
 }
 
 .item.list-group-item:before, .item.list-group-item:after
@@ -66,13 +91,52 @@
     margin: 0 0 11px;
 }
 
+.card{
+    background-color: #9ece5d;
+    margin: 20px;
+    border: 2px solid #212529;
+    border-radius: 3px;
+}
+
 
 .header{
     display: flex;
-    margin: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 8px solid #212529;
+    border-radius: 35px;
+}
+
+
+.filter_column{
+    margin-left: 40px;
+    font-size:25px;
+    margin-top: 10px;
+
 }
 
 #cart{
-    margin-left: 600px;
+    margin-left: 43%;
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
 }
 
+#suppliers{
+    background-color:#53c2b6;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+#categories{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.footer{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+    font-family: "Brush Script MT";
+    font-size: 40px;
+}

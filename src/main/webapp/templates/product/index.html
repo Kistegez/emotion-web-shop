@@ -5,7 +5,7 @@
     <meta name="author" content="Codecool" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Codecool Shop</title>
+    <title>Emotion Shop</title>
 
     <!-- Bootstrap components -->
     <!-- Latest compiled and minified Jquery -->
@@ -37,34 +37,34 @@
 
 <body>
 
-<div class="jumbotron text-center">
+
+<div class="jumbotron text-center" id="title">
     <h1>Emotion Shop</h1>
 </div>
 <div class="container">
     <div class="header">
+        <div class="filter_column">
+            <strong>Category: </strong>
+            <select class="filter" id="categories">
+                <option value="0">All</option>
+                <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getName()}">
+                </option>
+            </select>
+        </div>
+        <div class="filter_column">
+            <strong>Supplier: </strong>
+            <select class="filter" id="suppliers">
+                <option value="0">All</option>
+                <option th:each="supplier : ${suppliers}" th:value="${supplier.getId()}" th:text="${supplier.getName()}"></option>
+            </select>
+        </div>
         <button type="button" id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
             <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
         </button>
     </div>
 
     <div th:replace="product/cart_modal.html :: copy"></div>
-<div class="card">
-    <div class="column px-1">
-        <strong>Category: </strong>
-        <select id="categories" >
-            <option value="0">All</option>
-            <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getName()}">
-            </option>
-        </select>
-    </div>
-    <div class="column px-1">
-        <strong>Supplier: </strong>
-        <select id="suppliers">
-            <option value="0">All</option>
-            <option th:each="supplier : ${suppliers}" th:value="${supplier.getId()}" th:text="${supplier.getName()}"></option>
-        </select>
-    </div>
-</div>
+
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
