@@ -15,7 +15,7 @@ body{
 }
 
 .deliver_container{
-    padding-left: 230px;
+    padding-left: 50px;
     font-size:25px
 }
 
@@ -79,29 +79,6 @@ body{
     padding-left: 10px;
 }
 
-.calling_container{
-
-}
-
-.calling_body{
-
-}
-
-.name_container{
-
-}
-
-.adress{
-
-}
-
-.city_and_postcode{
-
-}
-
-.phone_and_country{
-
-}
 
 #next-pages{
     padding-top: 100px;
@@ -121,9 +98,6 @@ body{
 
 }
 
-.close{
-
-}
 
 #payment-title{
     text-align: center;
@@ -138,9 +112,6 @@ body{
 
 }
 
-#payment_header{
-
-}
 
 .PayPalOrCredit{
     text-align: center;
@@ -185,3 +156,14 @@ body{
     color: white;
 }
 
+.footer{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+    font-family: "Brush Script MT";
+    font-size: 40px;
+}
+
+p{
+    text-align: right;
+    margin-right: 30px;
+    font-weight: bold;
+}

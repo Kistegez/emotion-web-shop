@@ -37,7 +37,7 @@ async function showCart() {
         content += showProducts(product);
         totalPrice += parseInt(product.defaultPrice * product.amount)
     }
-    document.getElementById("payment-cart").innerHTML = content;
+    document.getElementById("cart-body").innerHTML = content;
     document.getElementById("total-price").innerHTML = totalPrice.toString() + " USD";
 }
 
@@ -48,13 +48,11 @@ async function getCartProducts() {
 
 
 function showProducts(data) {
-    return `<tr>
+return `<tr>
             <td class="w-25">
-                <img src="/static/img/product_${data.id}.jpg"  alt="${data.name} + '.jpg'" class="image" >
+                <img src="/static/img/product_${data.id}.jpg"  alt="${data.name} + '.jpg'" class="image" width="60" >
             </td>
-            <td>${data.name}</td>
-            <td>${data.defaultPrice} ${data.defaultCurrency}</td>
-            <td class="qty"><p id=${"amountId" + data.id} type="text" class="amount form-control" >${data.amount}</p></td>   
+            <td>${data.name}</td> 
             <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} class="product-total-price" data-default-currency=${data.defaultCurrency}>${(data.defaultPrice * data.amount).toFixed(2)} ${data.defaultCurrency}</td>
         </tr>`
 }

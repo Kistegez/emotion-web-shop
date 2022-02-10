@@ -159,6 +159,31 @@
             </section>
     </div>
     </section>
+    <section class="billing_information">
+        <div class="user_table">
+
+            <div class="billing_title">
+                <h3 class="billing_title_headliner">Your cart</h3>
+            </div>
+            <div class="billing_body" id="payment-cart">
+                <table class="table table-image">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="modal-body" id="cart-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <p>Total price: </p>
+            <p id="total-price"></p>
+        </div>
+    </section>
     <section class="deliver_container">
         <div class ="deliver_table">
         <div class="deliver_title">
@@ -222,22 +247,9 @@
         </section>
 
     </section>
-    <section class="billing_information">
-        <div class="user_table">
-
-            <div class="billing_title">
-                <h3 class="billing_title_headliner">Your cart:</h3>
-            </div>
-            <div class="billing_body" id="payment-cart">
-            </div>
-            <p>Total price: </p>
-            <p id="total-price"></p>
-        </div>
-    </section>
     </div>
     </div>
-
-
 </section>
+<div th:replace="footer.html :: copy"></div>
 </body>
 </html>
