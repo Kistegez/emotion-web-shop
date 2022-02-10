@@ -90,15 +90,22 @@ h1{
     margin: 0 0 11px;
 }
 
-.card{
+.product_container{
     background-color: #9ece5d;
+    border: 9px solid #212529;
+    border-radius: 30px;
+}
+
+.card{
+    background-color: #f79292;
     margin: 20px;
     border: 9px solid #212529;
-    border-radius: 3px;
+    border-radius: 30px;
 }
 
 
 .header{
+    background-color: #9ece5d;
     display: flex;
     margin-bottom: 30px;
     padding: 15px;
@@ -129,7 +136,7 @@ h1{
 
 }
 #categories{
-    background-color:#9ece5d;
+    background-color:#53c2b6;
     border: 2px solid black;
     border-radius: 10px;
 }
