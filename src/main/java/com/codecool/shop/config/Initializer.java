@@ -37,8 +37,18 @@ public class Initializer implements ServletContextListener {
         productCategoryDataStore.add(phone);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", phone, amazon));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        productDataStore.add(new Product("Amazon Fire HD 8", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
+        productDataStore.add(new Product("Fear", new BigDecimal("9.9"), "USD", "Feel intensive fear for an hour.", phone, amazon));
+        productDataStore.add(new Product("Narcism", new BigDecimal("79.9"), "USD", "Feel you are the best for an hour.", tablet, lenovo));
+        productDataStore.add(new Product("Amusement", new BigDecimal("12.9"), "USD", "Be frivolous for an hour.", tablet, amazon));
+        productDataStore.add(new Product("Drunkeness", new BigDecimal("24.9"), "USD", "Get drunk for an hour whitout hangover and health problems.", tablet, amazon));
+        productDataStore.add(new Product("Active", new BigDecimal("13.9"), "USD", "Get the power for a whiile.", tablet, amazon));
+        productDataStore.add(new Product("Get cold", new BigDecimal("9.9"), "USD", "Feel the cold for an hour.", tablet, amazon));
+        productDataStore.add(new Product("Coma", new BigDecimal("19.9"), "USD", "Fall asleep instant for 2 hour, nothing can wake up you for a while.", tablet, amazon));
+        productDataStore.add(new Product("Jerk", new BigDecimal("9.9"), "USD", "Say what you want and do what you want. No inhibition for an hour.", tablet, amazon));
+        productDataStore.add(new Product("Average", new BigDecimal("9.9"), "USD", "Feel like just an average random peapole.", tablet, amazon));
+        productDataStore.add(new Product("Rich", new BigDecimal("3.9"), "USD", "Just spend your money you feel rich now (for an hour).", tablet, amazon));
+        productDataStore.add(new Product("Feminine", new BigDecimal("20"), "USD", "Feel like a pretty women for a day.", tablet, amazon));
+        productDataStore.add(new Product("Green", new BigDecimal("3.9"), "USD", "Feel something for the nature. (4 hour)", tablet, amazon));
+        productDataStore.add(new Product("Anxiety", new BigDecimal("13.9"), "USD", "Feel inertia and despair for a day.", tablet, amazon));
     }
 }
