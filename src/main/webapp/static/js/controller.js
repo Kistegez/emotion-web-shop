@@ -48,11 +48,11 @@ function editTotalPrice(){
     document.getElementById("total-cart-price").innerText = 0;
     let amountPrices = document.querySelectorAll(".product-total-price")
     for (let amountPrice of amountPrices){
-        let price = parseFloat(amountPrice.innerText);
+        let price = parseFloat(amountPrice.innerText)
         let total = document.getElementById("total-cart-price").innerText;
         let totalPrice = parseFloat(total);
         let newPrice = price + totalPrice;
-        document.getElementById("total-cart-price").innerText = newPrice + " USD";
+        document.getElementById("total-cart-price").innerText = newPrice.toFixed(2) + " USD";
 
     }
 }
