@@ -1,3 +1,5 @@
+let totalPrice = 0;
+
 function setupEventListener() {
     document.getElementById("company_true").addEventListener("click",hideElement);
     document.getElementById("company_false").addEventListener("click",hideElement);
@@ -31,11 +33,12 @@ function hidePaying() {
 async function showCart() {
     let products = await getCartProducts();
     let content = "";
-    let totalPrice = 0;
     for (let product of products) {
         content += showProducts(product);
+        totalPrice += parseInt(product.defaultPrice * product.amount)
     }
     document.getElementById("payment-cart").innerHTML = content;
+    document.getElementById("total-price").innerHTML = totalPrice.toString() + " USD";
 }
 
 async function getCartProducts() {
