@@ -17,7 +17,7 @@ function createOneNew(data){
             <td>${data.name}</td>
             <td>${data.defaultPrice} ${data.defaultCurrency}</td>
             <td class="qty"><p id=${"amountId" + data.id} type="text" class="amount form-control" >${data.amount}</p></td>
-            <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} data-default-currency=${data.defaultCurrency}>${data.defaultPrice * data.amount} ${data.defaultCurrency}</td>
+            <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} class="product-total-price" data-default-currency=${data.defaultCurrency}>${data.defaultPrice * data.amount} ${data.defaultCurrency}</td>
             <td data-product-id=${data.id}>
                 <button class= "edit-button" data-value="1" class="edit">+</button>
                 <button class= "edit-button" data-value="-1" class="edit">-</button>
