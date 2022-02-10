@@ -1,27 +1,40 @@
 let totalPrice = 0;
+let previousCost = 0;
+
+
+function addDeliveryCost(e) {
+    totalPrice -= previousCost;
+    let deliveryCost = parseInt(e.target.value);
+    previousCost = deliveryCost;
+    totalPrice += deliveryCost;
+    document.getElementById("total-price").innerHTML = totalPrice.toString() + " USD";
+}
 
 function setupEventListener() {
     document.getElementById("company_true").addEventListener("click",hideElement);
     document.getElementById("company_false").addEventListener("click",hideElement);
     document.getElementById("paypal").addEventListener("click", hidePaying);
     document.getElementById("CreditCardInput").addEventListener("click", hidePaying);
+    document.getElementById("standard-gross1").addEventListener("click", addDeliveryCost);
+    document.getElementById("standard-gross2").addEventListener("click", addDeliveryCost);
+    document.getElementById("standard-gross3").addEventListener("click", addDeliveryCost);
 
 }
 
 
-function hideElement() {
+function hideElement(e) {
     let billingCompanyField = document.getElementById("billing_input");
-    if (billingCompanyField.style.display === "none") {
+    if (e.target.id === "company_false") {
         billingCompanyField.style.display = "block";
     } else {
         billingCompanyField.style.display = "none";
     }
 }
 
-function hidePaying() {
+function hidePaying(e) {
     let creditCardInput = document.getElementById("CreditCard");
     let payPalInput = document.getElementById("payPal_input");
-    if (creditCardInput.style.display === "none") {
+    if (e.target.id === "CreditCardInput") {
         creditCardInput.style.display = "block";
         payPalInput.style.display = "none"
     } else {
@@ -30,7 +43,7 @@ function hidePaying() {
     }
 }
 
-async function showCart() {
+async function showCart(e) {
     let products = await getCartProducts();
     let content = "";
     for (let product of products) {
@@ -56,7 +69,6 @@ return `<tr>
             <td id=${"product-total" + data.id} data-default-price=${data.defaultPrice} class="product-total-price" data-default-currency=${data.defaultCurrency}>${(data.defaultPrice * data.amount).toFixed(2)} ${data.defaultCurrency}</td>
         </tr>`
 }
-
 
 showCart();
 setupEventListener();
