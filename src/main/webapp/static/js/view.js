@@ -1,6 +1,5 @@
-export {cartView,showModal,showProducts}
+export {showModal,showProducts}
 
-import {getPrice} from "./domHandler.js";
 
 
 function showModal(datas) {

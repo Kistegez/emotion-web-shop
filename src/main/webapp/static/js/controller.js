@@ -1,5 +1,5 @@
 import {dataHandler, getProductsByFilter} from "./dataHandler.js";
-import {cartView,showProducts} from "./view.js";
+import {showProducts} from "./view.js";
 import {cartModal} from "./dataHandler.js";
 import {editCart} from "./dataHandler.js";
 
