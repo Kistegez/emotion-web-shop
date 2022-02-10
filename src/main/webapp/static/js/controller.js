@@ -52,7 +52,7 @@ function editTotalPrice(){
         let total = document.getElementById("total-cart-price").innerText;
         let totalPrice = parseFloat(total);
         let newPrice = price + totalPrice;
-        document.getElementById("total-cart-price").innerText = newPrice.toFixed(2) + " USD";
+        document.getElementById("total-cart-price").innerText = newPrice.toFixed(2) + " $";
 
     }
 }
