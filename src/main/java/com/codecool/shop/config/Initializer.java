@@ -39,18 +39,18 @@ public class Initializer implements ServletContextListener {
         productCategoryDataStore.add(goodEmotion);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Fear", new BigDecimal("9.9"), "USD", "Feel intensive fear for an hour.", badEmotion, unicum));
-        productDataStore.add(new Product("Narcism", new BigDecimal("79.9"), "USD", "Feel you are the best for an hour.", goodEmotion, gucci));
-        productDataStore.add(new Product("Amusement", new BigDecimal("12.9"), "USD", "Be frivolous for an hour.", goodEmotion, unicum));
-        productDataStore.add(new Product("Drunkeness", new BigDecimal("24.9"), "USD", "Get drunk for an hour whitout hangover and health problems.", goodEmotion,unicum));
-        productDataStore.add(new Product("Active", new BigDecimal("13.9"), "USD", "Get the power for a whiile.", goodEmotion, mcDonalds));
-        productDataStore.add(new Product("Get cold", new BigDecimal("9.9"), "USD", "Feel the cold for an hour.", badEmotion, unicum));
+        productDataStore.add(new Product("Fear", new BigDecimal("9.9"), "USD", "Feel intense fear for an hour.", badEmotion, unicum));
+        productDataStore.add(new Product("Narcism", new BigDecimal("79.9"), "USD", "Feel like you are the best for an hour.", goodEmotion, gucci));
+        productDataStore.add(new Product("Amusement", new BigDecimal("12.9"), "USD", "Be light-headed for an hour.", goodEmotion, unicum));
+        productDataStore.add(new Product("Drunkeness", new BigDecimal("24.9"), "USD", "Get drunk for an hour without hangover and health problems.", goodEmotion,unicum));
+        productDataStore.add(new Product("Active", new BigDecimal("13.9"), "USD", "Get the power for a while.", goodEmotion, mcDonalds));
+        productDataStore.add(new Product("Feel cold", new BigDecimal("9.9"), "USD", "Feel the cold for an hour.", badEmotion, unicum));
         productDataStore.add(new Product("Coma", new BigDecimal("19.9"), "USD", "Fall asleep instant for 2 hour, nothing can wake up you for a while.", goodEmotion, unicum));
         productDataStore.add(new Product("Jerk", new BigDecimal("9.9"), "USD", "Say what you want and do what you want. No inhibition for an hour.", goodEmotion, gucci));
-        productDataStore.add(new Product("Average", new BigDecimal("9.9"), "USD", "Feel like just an average random peapole.", badEmotion, mcDonalds));
-        productDataStore.add(new Product("Rich", new BigDecimal("3.9"), "USD", "Just spend your money you feel rich now (for an hour).", goodEmotion, gucci));
+        productDataStore.add(new Product("Average", new BigDecimal("9.9"), "USD", "Feel like just an average random people.", badEmotion, mcDonalds));
+        productDataStore.add(new Product("Rich", new BigDecimal("3.9"), "USD", "Feel like rich person and spend your money without gilt (for an hour).", goodEmotion, gucci));
         productDataStore.add(new Product("Feminine", new BigDecimal("20"), "USD", "Feel like a pretty women for a day.", badEmotion, gucci));
-        productDataStore.add(new Product("Green", new BigDecimal("3.9"), "USD", "Feel something for the nature. (4 hour)", badEmotion, mcDonalds));
+        productDataStore.add(new Product("Green", new BigDecimal("3.9"), "USD", "Feel like you carry for the nature. (4 hour)", badEmotion, mcDonalds));
         productDataStore.add(new Product("Anxiety", new BigDecimal("13.9"), "USD", "Feel inertia and despair for a day.", badEmotion, mcDonalds));
     }
 }
