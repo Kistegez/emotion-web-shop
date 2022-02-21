@@ -21,6 +21,9 @@ public class ProductService{
         this.productCategoryDao = productCategoryDao;
     }
 
+
+
+
     public ProductCategory getProductCategory(int categoryId){
         return productCategoryDao.find(categoryId);
     }
@@ -47,14 +50,5 @@ public class ProductService{
         return ProductDaoMem.getInstance().getAll().stream().filter(product ->
                         (product.getProductCategory().getId()==Integer.parseInt(categoryId)||categoryId.equals("0"))&&
                         (product.getSupplier().getId()==Integer.parseInt(supplierId)||supplierId.equals("0"))).collect(Collectors.toList());
-    }
-
-    public ArrayList<String> convertList(List<Product> filteredProducts){
-        ArrayList<String> products = new ArrayList<String>();
-        for (Product product:filteredProducts) {
-            products.add(product.toString());
-        }
-        return products;
-
     }
 }

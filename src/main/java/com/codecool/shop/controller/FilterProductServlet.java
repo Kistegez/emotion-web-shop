@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -35,7 +32,6 @@ public class FilterProductServlet extends HttpServlet {
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         ProductService productService = new ProductService(productDataStore, productCategoryDataStore);
         List<Product> filteredProducts = productService.getFilteredProductsById(categoryId, supplierId);
-        ArrayList<String> products = productService.convertList(filteredProducts);
         Gson gson = new Gson();
         String json = gson.toJson(filteredProducts);
         out.println(json);

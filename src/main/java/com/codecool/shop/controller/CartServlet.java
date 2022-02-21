@@ -4,7 +4,6 @@ import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Product;
-import com.codecool.shop.service.CartProduct;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
