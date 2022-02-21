@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductService{
-    private final ProductDao productDao;
+    private ProductDao productDao;
     private ProductCategoryDao productCategoryDao;
 
     public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao) {
@@ -22,9 +22,6 @@ public class ProductService{
     }
 
 
-    public Product getProductById(int id){
-        return productDao.find(id);
-    }
 
 
     public ProductCategory getProductCategory(int categoryId){
