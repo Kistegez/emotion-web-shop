@@ -1,4 +1,4 @@
-import {dataHandler, getProductsByFilter} from "./dataHandler.js";
+import {dataHandler, getProductsByFilter, sendProductToCart} from "./dataHandler.js";
 import {showProducts} from "./view.js";
 import {cartModal} from "./dataHandler.js";
 import {editCart} from "./dataHandler.js";
@@ -69,5 +69,19 @@ async function loadFilteredProducts() {
     let supplierId = document.getElementById('suppliers').value;
     let filterProduct = await getProductsByFilter(categoryId, supplierId);
     showProducts(filterProduct);
+    addEventListenerToAll(".cart-btn", addToCart);
 }
+
+async function addToCart(e) {
+    const id = e.target.dataset.btnId;
+    await dataHandler.fetchProductId(id);
+}
+
+function addEventListenerToAll(selector, func) {
+    const elements = document.querySelectorAll(selector)
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', func)
+    }
+}
+
 

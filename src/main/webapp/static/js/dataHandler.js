@@ -1,4 +1,4 @@
-export {cartModal,getProductsByFilter,editCart};
+export {cartModal,getProductsByFilter,editCart, sendProductToCart};
 
 import {showModal} from "./view.js";
 
@@ -33,3 +33,10 @@ async function getResponse(url) {
 async function getProductsByFilter(categoryId, supplierId) {
     return getResponse(`/api/product?categoryId=${categoryId}&supplierId=${supplierId}`);
 }
+
+
+function sendProductToCart(productId){
+    const url = `/cart?product_id=${productId}`;
+    return getResponse(url);
+}
+

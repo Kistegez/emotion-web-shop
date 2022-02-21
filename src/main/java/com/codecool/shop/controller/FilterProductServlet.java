@@ -35,7 +35,6 @@ public class FilterProductServlet extends HttpServlet {
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         ProductService productService = new ProductService(productDataStore, productCategoryDataStore);
         List<Product> filteredProducts = productService.getFilteredProductsById(categoryId, supplierId);
-        ArrayList<String> products = productService.convertList(filteredProducts);
         Gson gson = new Gson();
         String json = gson.toJson(filteredProducts);
         out.println(json);

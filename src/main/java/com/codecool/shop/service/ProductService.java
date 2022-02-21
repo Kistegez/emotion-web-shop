@@ -13,13 +13,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductService{
-    private ProductDao productDao;
+    private final ProductDao productDao;
     private ProductCategoryDao productCategoryDao;
 
     public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao) {
         this.productDao = productDao;
         this.productCategoryDao = productCategoryDao;
     }
+
+
+    public Product getProductById(int id){
+        return productDao.find(id);
+    }
+
 
     public ProductCategory getProductCategory(int categoryId){
         return productCategoryDao.find(categoryId);
@@ -47,14 +53,5 @@ public class ProductService{
         return ProductDaoMem.getInstance().getAll().stream().filter(product ->
                         (product.getProductCategory().getId()==Integer.parseInt(categoryId)||categoryId.equals("0"))&&
                         (product.getSupplier().getId()==Integer.parseInt(supplierId)||supplierId.equals("0"))).collect(Collectors.toList());
-    }
-
-    public ArrayList<String> convertList(List<Product> filteredProducts){
-        ArrayList<String> products = new ArrayList<String>();
-        for (Product product:filteredProducts) {
-            products.add(product.toString());
-        }
-        return products;
-
     }
 }
