@@ -25,18 +25,32 @@ public class Initializer implements ServletContextListener {
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
         //setting up a new supplier
-        Supplier amazon = new Supplier("Amazon", "Digital content and services");
-        supplierDataStore.add(amazon);
-        Supplier lenovo = new Supplier("Lenovo", "Computers");
-        supplierDataStore.add(lenovo);
+        Supplier mcDonalds = new Supplier("McDonalds", "Good feelings and strength.");
+        supplierDataStore.add(mcDonalds);
+        Supplier unicum = new Supplier("Unicum", "Average feelings.");
+        supplierDataStore.add(unicum);
+        Supplier gucci = new Supplier("Gucci", "Narcist feelings.");
+        supplierDataStore.add(gucci);
 
         //setting up a new product category
-        ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(tablet);
+        ProductCategory badEmotion = new ProductCategory("Bad", "Emotion", "You lose spirit energy using bad feelings.");
+        productCategoryDataStore.add(badEmotion);
+        ProductCategory goodEmotion = new ProductCategory("Good", "Emotion", "Good emotions upload your spiritual energy");
+        productCategoryDataStore.add(goodEmotion);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        productDataStore.add(new Product("Amazon Fire HD 8", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
+        productDataStore.add(new Product("Fear", new BigDecimal("9.9"), "USD", "Feel intense fear for an hour.", badEmotion, unicum));
+        productDataStore.add(new Product("Narcism", new BigDecimal("79.9"), "USD", "Feel like you are the best for an hour.", goodEmotion, gucci));
+        productDataStore.add(new Product("Amusement", new BigDecimal("12.9"), "USD", "Be light-headed for an hour.", goodEmotion, unicum));
+        productDataStore.add(new Product("Drunkeness", new BigDecimal("24.9"), "USD", "Get drunk for an hour without hangover and health problems.", goodEmotion,unicum));
+        productDataStore.add(new Product("Active", new BigDecimal("13.9"), "USD", "Get the power for a while.", goodEmotion, mcDonalds));
+        productDataStore.add(new Product("Feel cold", new BigDecimal("9.9"), "USD", "Feel the cold for an hour.", badEmotion, unicum));
+        productDataStore.add(new Product("Coma", new BigDecimal("19.9"), "USD", "Fall asleep instant for 2 hour, nothing can wake up you for a while.", goodEmotion, unicum));
+        productDataStore.add(new Product("Jerk", new BigDecimal("9.9"), "USD", "Say what you want and do what you want. No inhibition for an hour.", goodEmotion, gucci));
+        productDataStore.add(new Product("Average", new BigDecimal("9.9"), "USD", "Feel like just an average random people.", badEmotion, mcDonalds));
+        productDataStore.add(new Product("Rich", new BigDecimal("3.9"), "USD", "Feel like rich person and spend your money without gilt (for an hour).", goodEmotion, gucci));
+        productDataStore.add(new Product("Feminine", new BigDecimal("20"), "USD", "Feel like a pretty women for a day.", badEmotion, gucci));
+        productDataStore.add(new Product("Green", new BigDecimal("3.9"), "USD", "Feel like you carry for the nature. (4 hour)", badEmotion, mcDonalds));
+        productDataStore.add(new Product("Anxiety", new BigDecimal("13.9"), "USD", "Feel inertia and despair for a day.", badEmotion, mcDonalds));
     }
 }

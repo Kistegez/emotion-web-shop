@@ -1,3 +1,32 @@
+body{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+}
+
+h1{
+    font-family: "Brush Script MT";
+    font-size: 180px;
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+
+
+#title{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+
+
+}
+.cart-button{
+    background-color: #ffd800;
+    color: black;
+    border: 2px solid #212529;
+    border-radius: 35px;
+}
+
+
 .glyphicon {
     margin-right:5px;
 }
@@ -39,7 +68,7 @@
 }
 .item.list-group-item:nth-of-type(odd)
 {
-    background: #eeeeee;
+    background: #212529;
 }
 
 .item.list-group-item:before, .item.list-group-item:after
@@ -59,4 +88,86 @@
 .list-group-item-text
 {
     margin: 0 0 11px;
+}
+
+.product_container{
+    background-color: #9ece5d;
+    border: 9px solid #212529;
+    border-radius: 30px;
+}
+
+.card{
+    background-color: #f79292;
+    margin: 20px;
+    border: 9px solid #212529;
+    border-radius: 30px;
+}
+
+
+.header{
+    background-color: #9ece5d;
+    display: flex;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 8px solid #212529;
+    border-radius: 35px;
+}
+
+
+.filter_column{
+    margin-left: 40px;
+    font-size:25px;
+    margin-top: 10px;
+
+}
+
+#cart{
+    margin-left: 43%;
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#suppliers{
+    background-color:#53c2b6;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+#categories{
+    background-color:#53c2b6;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.footer{
+    background-image: url("https://www.mycustomer.com/sites/default/files/istock_bortonia_emotionfaces.jpg");
+    font-family: "Brush Script MT";
+    font-size: 40px;
+}
+.modal-content{
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.edit-button{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#cart-checkout{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.close_button{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
 }

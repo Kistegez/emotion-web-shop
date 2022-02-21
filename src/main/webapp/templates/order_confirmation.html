@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/payment.css" />
+    <script src='/static/js/payment.js' defer></script>
+</head>
+<body>
+<section class="order_confirmation">
+<div class="side">
+
+    <section class="billing_information">
+        <div class="user_table">
+
+        <div class="billing_title">
+            <h3 class="billing_title_headliner">User informations</h3>
+        </div>
+        <div class="billing_body">
+
+            <div class="calling_container">
+                <div class="input">
+                    <span class="text">Calling:</span>
+                </div>
+                <div class="input">
+                    <input id="Mrs" name="billingTitleCode" type="radio" value="0002"><label for="Mrs"></label>
+                    <label for="Mrs" class="calling">Sir</label>
+                    <input id="Mr" name="billingTitleCode" type="radio" value="0001"><label for="Mr"></label>
+                    <label for="Mr" class="calling">Madame</label>
+                </div>
+            </div>
+
+        <div class="name_container">
+            <div class="input">
+                <input id="first_name" type="text" value="" placeholder="Bela">
+                <label for="first_name">
+                    <span class="name_text">Firstname</span>
+                </label>
+            </div>
+            <div class="input">
+                <input id="last_name" type="text" value="" placeholder="Minta">
+                <label for="last_name">
+                    <span class="name_text">Lastname</span>
+                </label>
+            </div>
+        </div>
+        <div class="adress">
+            <div class="input">
+                <input id="street_input" type="text" value="" maxlength="524288" placeholder="Nagymezo utca 44.">
+                <label for="street_input">
+                    <span class="street_text">Street, House number</span>
+                </label>
+            </div>
+            <div class="city_and_postcode">
+                <div class="input">
+                    <input id="postcode_input" type="text" value="" placeholder="1087">
+                    <label for="postcode_input">
+                        <span class="postcode_text">Postcode</span>
+                    </label>
+                </div>
+                <div class="input">
+                    <input id="city_input" type="text" value="" placeholder="Budapest">
+                    <label for="city_input" class="hr-form__label ">
+                        <span class="city_text">City</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="phone_and_country">
+            <div class="input">
+                <input id="phone_input" type="text" value="" placeholder="+36 70 1234 567">
+                <label for="phone_input" class="hr-form__label ">
+                    <span class="phone_text">Phone</span>
+                </label>
+            </div>
+            <div class="input">
+                <input id="email_input"  type="text" value="" placeholder="bela123@minta.com">
+                <label for="email_input" class="hr-form__label ">
+                    <span class="email_text">E-mail</span>
+                </label>
+            </div>
+            <div class="input">
+                <select id="country_choose">
+                    <option value=""> </option>
+                    <option value="AT">Austria</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="GR">Greece</option>
+                    <option value="HU" selected="selected">Hungary</option>
+                    <option value="IT">Italy</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MT">Malta</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NO">Norway</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="RO">Romania</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ES">Spain</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="GB">United Kingdom</option>
+                </select>
+                <label for="country_choose">
+                    <span class="country_text">Country</span>
+                    </label>
+            </div>
+        </div>
+    </div>
+            <section class="company_information">
+
+                <div class="billing_as_company">
+                    <div class="billing_as_company">
+                        <h5 class="deliver_headline">
+                            Buying as company:</h5>
+
+                        <div class="billing_as_company_body">
+                            <input type="radio" class="hr-form__radio" id="company_true" name="billing_company" value="true">
+                            <label for="company_true" class="company_igen">No</label>
+                            <input type="radio" class="hr-form__radio" id="company_false" name="billing_company" value="false" checked="">
+                            <label for="company_false" class="company_nem">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="billing_input">
+                    <div class="input">
+                        <input id="billingCompanyName" type="text" value="">
+                        <span class="text">Company name</span>
+                    </div>
+                    <div class="input">
+                        <input id="billingTaxNumber" type="text" value="">
+                        <span class="text">Tax number</span>
+                    </div>
+                </div>
+            </section>
+    </div>
+    </section>
+    <section class="billing_information">
+        <div class="user_table">
+
+            <div class="billing_title">
+                <h3 class="billing_title_headliner">Your cart</h3>
+            </div>
+            <div class="billing_body" id="payment-cart">
+                <table class="table table-image">
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="modal-body" id="cart-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <p>Total price: </p>
+            <p id="total-price"></p>
+        </div>
+    </section>
+    <section class="deliver_container">
+        <div class ="deliver_table">
+        <div class="deliver_title">
+            <div class="deliver_title_content">
+                <h3 class="deliver_headline">
+                    Delivery options</h3>
+            </div>
+        </div>
+        <div class="deliver_body">
+            <section >
+
+                <div class="delivery_company">
+                    <label for="standard-gross1" class="delivery_mode-select1">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross1" name="delivery_method" value="12">
+                        <label for="standard-gross1" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Logo-GLS-1080x1080px.svg/2048px-Logo-GLS-1080x1080px.svg.png" title="GLS" alt="GLS" height="40">
+                        </div>
+                        <span class="deliveryCost">$12</span>
+                    </label>
+                    <span class="deliveryTime">(3-5 workday)</span>
+                </div>
+
+
+
+                <div class="delivery_company">
+                    <label for="standard-gross2" class="delivery_mode-select">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross2" name="delivery_method" value="20">
+                        <label for="standard-gross2" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/2560px-DHL_Logo.svg.png" title="DHL" alt="DHL" height="20">
+                        </div>
+                        <span class="deliveryCost">$20 </span>
+                    </label>
+                    <span class="deliveryTime">(2-3 workdays)</span>
+                </div>
+
+
+
+                <div class="delivery_company">
+                    <label for="standard-gross3" class="delivery_mode-select">
+                        <input type="radio" class="delivery_mode_input" id="standard-gross3" name="delivery_method" value="16">
+                        <label for="standard-gross3" class="delivery_mode_select"></label>
+                        <div class="deliveryMode_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UPS_Logo_Shield_2017.svg/1200px-UPS_Logo_Shield_2017.svg.png" title="UPS" alt="UPS" height="30">
+                        </div>
+                        <span class="deliveryCost">$16</span>
+                    </label>
+                    <span class="deliveryTime">(3-5 workdays)</span>
+                </div>
+
+            </section>
+        </div>
+
+        </div>
+        <section  id="next-pages">
+            <button type="button" id="save" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#paymentModal" >
+                <span>Payment</span>
+            </button>
+            <div th:replace="product/payment_modal.html :: copy2"></div>
+        </section>
+
+    </section>
+    </div>
+    </div>
+</section>
+<div th:replace="footer.html :: copy"></div>
+</body>
+</html>

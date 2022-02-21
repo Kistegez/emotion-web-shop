@@ -5,7 +5,7 @@
     <meta name="author" content="Codecool" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Codecool Shop</title>
+    <title>Emotion Shop</title>
 
     <!-- Bootstrap components -->
     <!-- Latest compiled and minified Jquery -->
@@ -25,39 +25,67 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <script type="module" src='/static/js/main.js' defer></script>
+    <script type="module" src='/static/js/controller.js' defer></script>
+    <script type="module" src='/static/js/dataHandler.js' defer></script>
+    <script type="module" src='/static/js/view.js' defer></script>
+
 </head>
 
 <body>
 
-<div class="jumbotron text-center">
-    <h1>Codecool Shop</h1>
-</div>
 
+<div class="jumbotron text-center" id="title">
+    <h1>Emotion Shop</h1>
+</div>
 <div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+    <div class="header">
+        <div class="filter_column">
+            <strong>Category: </strong>
+            <select class="filter" id="categories">
+                <option value="0">All</option>
+                <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getName()}">
+                </option>
+            </select>
+        </div>
+        <div class="filter_column">
+            <strong>Supplier: </strong>
+            <select class="filter" id="suppliers">
+                <option value="0">All</option>
+                <option th:each="supplier : ${suppliers}" th:value="${supplier.getId()}" th:text="${supplier.getName()}"></option>
+            </select>
+        </div>
+        <button type="button" id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
+            <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
+        </button>
     </div>
 
+    <div th:replace="product/cart_modal.html :: copy"></div>
+
+    <div class="product_container">
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
                 <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
                 <div class="card-header">
-                    <h4 class="card-title" th:text="${prod.name}">Product name</h4>
+                    <h4 class="card-title product-name" th:id="product + ${prod.id}" th:text="${prod.name}">Product name</h4>
                     <p class="card-text" th:text="${prod.description}">Product description... </p>
                 </div>
                 <div class="card-body">
                     <div class="card-text">
-                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
+                        <p class="lead product-price" th:priceId="${prod.id}" th:price="${prod.getDefaultPrice()}" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <a class="btn btn-success cart-button" th:buttonId="${prod.id}" href="#">Add to cart</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 
