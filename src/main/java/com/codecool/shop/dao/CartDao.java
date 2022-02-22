@@ -1,7 +1,8 @@
 package com.codecool.shop.dao;
 
+import com.codecool.shop.model.CartProduct;
 import com.codecool.shop.model.Product;
-import com.codecool.shop.service.CartProduct;
+
 
 import java.awt.*;
 import java.math.BigDecimal;
