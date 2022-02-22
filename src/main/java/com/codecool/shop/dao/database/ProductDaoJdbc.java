@@ -20,7 +20,6 @@ public class ProductDaoJdbc implements ProductDao {
         this.dataSource = dataSource;
         this.productCategoryDaoJdbc = productCategoryDao;
         this.supplierDaoJdbc = supplierDao;
-
     }
 
 

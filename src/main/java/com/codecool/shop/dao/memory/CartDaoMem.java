@@ -1,11 +1,10 @@
-package com.codecool.shop.dao.implementation;
+package com.codecool.shop.dao.memory;
 
 import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.model.CartProduct;
 import com.codecool.shop.model.Product;
 
 
-import java.awt.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

@@ -2,13 +2,13 @@ package com.codecool.shop.controller;
 
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
-import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
-import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.SupplierDao;
+import com.codecool.shop.dao.memory.ProductCategoryDaoMem;
+import com.codecool.shop.dao.memory.ProductDaoMem;
+import com.codecool.shop.dao.memory.SupplierDaoMem;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.service.ProductService;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +30,8 @@ public class FilterProductServlet extends HttpServlet {
         String supplierId = req.getParameter("supplierId");
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore, productCategoryDataStore);
+        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+        ProductService productService = new ProductService(productDataStore, productCategoryDataStore, supplierDataStore);
         List<Product> filteredProducts = productService.getFilteredProductsById(categoryId, supplierId);
         Gson gson = new Gson();
         String json = gson.toJson(filteredProducts);
