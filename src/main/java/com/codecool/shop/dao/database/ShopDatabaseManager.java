@@ -2,6 +2,8 @@ package com.codecool.shop.dao.database;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+
+import com.codecool.shop.dao.ProductCategoryDao;
 import org.postgresql.ds.PGSimpleDataSource;
 
 public class ShopDatabaseManager {
@@ -35,5 +37,17 @@ public class ShopDatabaseManager {
         System.out.println("Connection ok.");
 
         return dataSource;
+    }
+
+    public ProductDaoJdbc getProductDao() {
+        return productDao;
+    }
+
+    public ProductCategoryDao getProductCategoryDao() {
+        return productCategoryDao;
+    }
+
+    public SupplierDaoJdbc getSupplierDao() {
+        return supplierDao;
     }
 }
