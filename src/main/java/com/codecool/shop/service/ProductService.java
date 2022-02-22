@@ -24,6 +24,9 @@ public class ProductService{
     }
 
 
+    public Supplier getSupplier(int supplierId){
+        return supplierDao.find(supplierId);
+    }
 
 
     public ProductCategory getProductCategory(int categoryId){
@@ -35,9 +38,23 @@ public class ProductService{
             return productDao.getAll();
         }
         else{
-            var category = productCategoryDao.find(categoryId);
+            ProductCategory category = getProductCategory(categoryId);
             return productDao.getBy(category);
         }
+    }
+
+    public List<Product> getProductsForSupplier(int supplierId){
+        if(supplierId == 0){
+            return productDao.getAll();
+        }
+        else {
+            Supplier supplier = getSupplier(supplierId);
+            return productDao.getBy(supplier);
+        }
+    }
+
+    public List<Product> getAllProducts(){
+        return productDao.getAll();
     }
 
     public List<ProductCategory> getAllCategories(){
@@ -45,7 +62,7 @@ public class ProductService{
     }
 
     public List<Supplier> getAllSuppliers() {
-        return SupplierDaoMem.getInstance().getAll();
+        return supplierDao.getAll();
     }
 
     public List<Product> getFilteredProductsById(String categoryId, String supplierId) {
