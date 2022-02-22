@@ -38,8 +38,10 @@ CREATE TABLE public.user (
 
 DROP TABLE IF EXISTS public.cart CASCADE;
 CREATE TABLE public.cart (
+    id serial NOT NULL PRIMARY KEY,
     user_id integer NOT NULL,
-    product_id integer NOT NULL
+    product_id integer NOT NULL,
+    amount integer
 );
 
 

@@ -2,8 +2,8 @@ package com.codecool.shop.controller;
 
 
 import com.codecool.shop.dao.implementation.CartDaoMem;
-import com.codecool.shop.model.Product;
-import com.codecool.shop.service.CartProduct;
+import com.codecool.shop.model.CartProduct;
+
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;

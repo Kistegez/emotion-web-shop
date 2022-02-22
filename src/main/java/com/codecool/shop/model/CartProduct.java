@@ -1,4 +1,4 @@
-package com.codecool.shop.service;
+package com.codecool.shop.model;
 
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
