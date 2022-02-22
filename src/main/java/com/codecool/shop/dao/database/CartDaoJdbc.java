@@ -23,7 +23,7 @@ public class CartDaoJdbc implements CartDao {
         try (Connection conn = dataSource.getConnection()) {
             String sql = "INSERT INTO cart (user_id, product_id, amount) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, );
+            statement.setInt(1, 1);
             statement.setInt(2, product.getId());
             statement.setInt(3, 1);
             statement.executeUpdate();
