@@ -15,6 +15,7 @@ public class ShopDatabaseManager {
     private UserDaoJdbc userDao;
 
 
+
     public void setup() throws SQLException {
         DataSource dataSource = connect();
         cartDao = new CartDaoJdbc(dataSource);
