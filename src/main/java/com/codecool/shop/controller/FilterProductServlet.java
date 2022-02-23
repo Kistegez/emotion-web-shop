@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 
 @WebServlet(urlPatterns = {"/api/product"})
 public class FilterProductServlet extends HttpServlet {
@@ -32,10 +34,10 @@ public class FilterProductServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         String categoryId = req.getParameter("categoryId");
         String supplierId = req.getParameter("supplierId");
-        //ProductDao productDataStore = ProductDaoMem.getInstance();
-        //ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        //SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
-        //ProductService productService = new ProductService(productDataStore, productCategoryDataStore, supplierDataStore);
+        /*ProductDao productDataStore = ProductDaoMem.getInstance();
+        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+        ProductService productService = new ProductService(productDataStore, productCategoryDataStore, supplierDataStore);*/
         ShopDatabaseManager database = new ShopDatabaseManager();
         try {
             database.setup();
@@ -43,16 +45,9 @@ public class FilterProductServlet extends HttpServlet {
             e.printStackTrace();
         }
         ProductService productService = new ProductService(database.getProductDao(), database.getProductCategoryDao(), database.getSupplierDao());
-        List<Product>filteredList = new ArrayList<>();
-        List<Product>filteredProductsByCategory =  productService.getProductsForCategory(Integer.parseInt(categoryId));
-        List<Product>filteredProductsBySupplier =  productService.getProductsForSupplier(Integer.parseInt(supplierId));
-        filteredProductsByCategory.stream()
-                .filter(element -> filteredProductsBySupplier.contains(element))
-                .collect(Collectors.toList());
-
-            //List<Product> filteredProducts = productService.getFilteredProductsById(categoryId, supplierId);
+        List<Product>filteredProducts =  productService.getFilteredProducts(Integer.parseInt(categoryId), Integer.parseInt(supplierId));
         Gson gson = new Gson();
-        String json = gson.toJson(filteredProductsByCategory);
+        String json = gson.toJson(filteredProducts);
         out.println(json);
     }
 
