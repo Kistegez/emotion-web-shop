@@ -23,8 +23,8 @@ public class Product extends BaseModel {
         super(product.getName(), product.getDescription());
         this.defaultPrice = product.getDefaultPrice();
         this.defaultCurrency = product.getDefaultCurrency();
-        this.productCategory = product.getProductCategory();
-        this.supplier = product.getSupplier();
+        this.setSupplier(product.getSupplier());
+        this.setProductCategory(product.getProductCategory());
     }
 
     public BigDecimal getDefaultPrice() {
