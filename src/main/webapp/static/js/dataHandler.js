@@ -1,4 +1,4 @@
-export {cartModal,getProductsByFilter,editCart, sendProductToCart};
+export {cartModal,getProductsByFilter,editCart, postResponse};
 
 import {showModal} from "./view.js";
 
@@ -35,8 +35,11 @@ async function getProductsByFilter(categoryId, supplierId) {
 }
 
 
-function sendProductToCart(productId){
-    const url = `/cart?product_id=${productId}`;
-    return getResponse(url);
-}
+
+async function postResponse(url, data) {
+    return (await fetch(url, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    })).json()}
 

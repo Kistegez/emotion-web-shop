@@ -1,4 +1,4 @@
-import {dataHandler, getProductsByFilter, sendProductToCart} from "./dataHandler.js";
+import {dataHandler, getProductsByFilter, postResponse} from "./dataHandler.js";
 import {showProducts} from "./view.js";
 import {cartModal} from "./dataHandler.js";
 import {editCart} from "./dataHandler.js";
@@ -61,6 +61,7 @@ function setupEventListeners() {
     document.getElementById("categories").addEventListener("change", loadFilteredProducts)
     document.getElementById("suppliers").addEventListener("change", loadFilteredProducts)
     addEventCartButtons();
+    document.getElementById("register").addEventListener("click",registration)
 
 }
 
@@ -84,4 +85,15 @@ function addEventListenerToAll(selector, func) {
     }
 }
 
-
+async function registration(e) {
+    let error = document.getElementById("register-error")
+    let name = document.getElementById("reg_name").value
+    let email = document.getElementById("email").value
+    let password = document.getElementById("reg_psw").value
+    if (email.includes('@') && email.includes('.')) {
+        error.innerText= "Successfully"
+        await postResponse("/api/registration", {"name" : name, "email" : email, "password" : password})
+    } else {
+        error.innerText = "Wrong email format. Please try again!"
+    }
+}
