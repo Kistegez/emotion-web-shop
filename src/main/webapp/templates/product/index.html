@@ -67,6 +67,8 @@
         <button type="button" id="login-modal" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginModal">
             <b>Login</b>
         </button>
+        <span style="display: none" id="user-name"> <b id="name-place"></b></span>
+        <button type="button" id="logout" class="btn btn-primary btn-sm" style="display: none">Logout</button>
     </div>
 
     <div th:replace="product/cart_modal.html :: copy"></div>
