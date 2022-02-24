@@ -48,7 +48,7 @@ public class Product extends BaseModel {
     }
 
     public void setPrice(BigDecimal price, String currency) {
-        this.defaultPrice = price;
+        this.defaultPrice = price.setScale(1, BigDecimal.ROUND_UP);
         this.defaultCurrency = Currency.getInstance(currency);
     }
 
