@@ -73,7 +73,11 @@ public class ProductDaoJdbc implements ProductDao {
             ResultSet rs = conn.createStatement().executeQuery(sql);
             List<Product> result = new ArrayList<>();
             while (rs.next()) {
-                Product oneProduct = new Product(rs.getString(2), BigDecimal.valueOf(rs.getFloat(3)), "USD", rs.getString(4), productCategoryDaoJdbc.find(rs.getInt(6)),  supplierDaoJdbc.find(rs.getInt(5)));
+                Product oneProduct = new Product(rs.getString(2),
+                        BigDecimal.valueOf(rs.getFloat(3)),
+                        "USD", rs.getString(4),
+                        productCategoryDaoJdbc.find(rs.getInt(6)),
+                        supplierDaoJdbc.find(rs.getInt(5)));
                 oneProduct.setId(rs.getInt(1));
                 result.add(oneProduct);
             }
