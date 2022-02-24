@@ -58,17 +58,17 @@
                 <option th:each="supplier : ${suppliers}" th:value="${supplier.getId()}" th:text="${supplier.getName()}"></option>
             </select>
         </div>
+        <span style="display: none" id="user-name"> <b style="text-align: center" id="name-place"></b></span>
         <button type="button" id="cart" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cartModal">
             <i class="fa fa-shopping-cart" id="cart_icon" style="font-size:48px;"></i>
         </button>
         <button type="button" id="register-modal" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registerModal">
-            <b>Register</b>
+            <b>Registration</b>
         </button>
         <button type="button" id="login-modal" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginModal">
             <b>Login</b>
         </button>
-        <span style="display: none" id="user-name"> <b id="name-place"></b></span>
-        <button type="button" id="logout" class="btn btn-primary btn-sm" style="display: none">Logout</button>
+        <button type="button" id="logout" class="btn btn-primary btn-sm" style="display: none"><b>Logout</b></button>
     </div>
 
     <div th:replace="product/cart_modal.html :: copy"></div>
