@@ -1,5 +1,5 @@
-import {dataHandler, getProductsByFilter, postResponse} from "./dataHandler.js";
-import {showProducts} from "./view.js";
+import {dataHandler, getProductsByFilter, postResponse, logoutFetch} from "./dataHandler.js";
+import {showModal, showProducts} from "./view.js";
 import {cartModal} from "./dataHandler.js";
 import {editCart} from "./dataHandler.js";
 
@@ -90,10 +90,8 @@ function addEventListenerToAll(selector, func) {
 
 
 async function saveCart() {
-    await fetch(`/saveCart?user_id=${1}`)
-
+    await fetch(`/api/save_cart?user_id=${localStorage.getItem("user_id")}`)
 }
-
 
 async function registration() {
     let error = document.getElementById("register-error")
@@ -130,6 +128,8 @@ async function login() {
         document.getElementById("user-name").style.display = "block"
         document.getElementById("name-place").innerText = "Hello " + login.name + "!"
         checkUserInSession()
+        document.getElementById("logout").addEventListener('click', function () {
+            logoutFetch()});
     }
 }
 
@@ -146,7 +146,6 @@ function checkUserInSession() {
         document.getElementById("login-modal").style.display = "none"
         document.getElementById("register-modal").style.display = "none"
         document.getElementById("logout").style.display = "block"
-
     } else {
         document.getElementById("login-modal").style.display = "block"
         document.getElementById("register-modal").style.display = "block"
@@ -155,4 +154,5 @@ function checkUserInSession() {
         document.getElementById("name-place").innerText = ""
         }
 }
+
 

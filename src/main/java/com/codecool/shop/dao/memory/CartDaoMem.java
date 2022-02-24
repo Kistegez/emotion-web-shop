@@ -69,5 +69,9 @@ public class CartDaoMem implements CartDao {
     public List<CartProduct> getAll() {
         return cartList;
     }
+
+    public void setCartList() {
+        this.cartList = new ArrayList<>();
+    }
 }
 

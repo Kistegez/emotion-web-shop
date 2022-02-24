@@ -1,4 +1,4 @@
-export {cartModal,getProductsByFilter,editCart, postResponse};
+export {cartModal,getProductsByFilter,editCart, postResponse, logoutFetch};
 
 import {showModal} from "./view.js";
 
@@ -15,8 +15,12 @@ async function editCart(value, id){
 }
 
 async function cartModal() {
-    let datas = await getResponse("/api/review_cart")
+    let datas = await getResponse(`/api/review_cart`)
     showModal(datas);
+}
+
+async function logoutFetch() {
+    await fetch(`/api/log_out`)
 }
 
 async function urlResponse(url){
