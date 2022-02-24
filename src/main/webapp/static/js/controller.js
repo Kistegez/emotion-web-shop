@@ -60,6 +60,7 @@ function editTotalPrice(){
 function setupEventListeners() {
     document.getElementById("categories").addEventListener("change", loadFilteredProducts)
     document.getElementById("suppliers").addEventListener("change", loadFilteredProducts)
+    document.getElementById("save").addEventListener("click", saveCart)
     addEventCartButtons();
     document.getElementById("register").addEventListener("click",registration)
 
@@ -85,6 +86,13 @@ function addEventListenerToAll(selector, func) {
     }
 }
 
+
+async function saveCart() {
+    await fetch(`/saveCart?user_id=${1}`)
+
+}
+
+
 async function registration(e) {
     let error = document.getElementById("register-error")
     let name = document.getElementById("reg_name").value
@@ -97,3 +105,4 @@ async function registration(e) {
         error.innerText = "Wrong email format. Please try again!"
     }
 }
+

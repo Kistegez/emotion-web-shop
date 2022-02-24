@@ -18,14 +18,12 @@ public class ShopDatabaseManager {
 
     public void setup() throws SQLException {
         DataSource dataSource = connect();
-        cartDao = new CartDaoJdbc(dataSource);
         productCategoryDao = new ProductCategoryDaoJdbc(dataSource);
         supplierDao = new SupplierDaoJdbc(dataSource);
         productDao = new ProductDaoJdbc(dataSource, productCategoryDao, supplierDao);
+        cartDao = new CartDaoJdbc(dataSource, productDao);
         UserDaoJdbc userDao = UserDaoJdbc.getInitialInstance(dataSource);
         UserService.createInitialInstance(userDao);
-
-
     }
 
     private DataSource connect() throws SQLException {
@@ -57,7 +55,13 @@ public class ShopDatabaseManager {
         return supplierDao;
     }
 
+
+    public CartDaoJdbc getCartDao() {
+        return cartDao;
+    }
+  
     public UserDaoJdbc getUserDao() {
         return userDao;
+
     }
 }

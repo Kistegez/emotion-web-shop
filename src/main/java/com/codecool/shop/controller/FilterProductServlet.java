@@ -2,6 +2,7 @@ package com.codecool.shop.controller;
 
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.SetUpMemOrJdbc;
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.dao.database.ShopDatabaseManager;
 import com.codecool.shop.dao.memory.ProductCategoryDaoMem;
@@ -27,6 +28,13 @@ import static java.util.stream.Collectors.toList;
 
 @WebServlet(urlPatterns = {"/api/product"})
 public class FilterProductServlet extends HttpServlet {
+
+    ProductDao productDataStore;
+    ProductCategoryDao productCategoryDataStore;
+    SupplierDao supplierDataStore;
+    SetUpMemOrJdbc setUpMemOrJdbc = new SetUpMemOrJdbc();
+    boolean daoTypeIsJdbc;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json");
@@ -34,17 +42,23 @@ public class FilterProductServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         String categoryId = req.getParameter("categoryId");
         String supplierId = req.getParameter("supplierId");
-        /*ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore, productCategoryDataStore, supplierDataStore);*/
-        ShopDatabaseManager database = new ShopDatabaseManager();
-        try {
-            database.setup();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        this.daoTypeIsJdbc = setUpMemOrJdbc.readResource();
+        if(daoTypeIsJdbc){
+            ShopDatabaseManager database = new ShopDatabaseManager();
+            try {
+                database.setup();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            productDataStore = database.getProductDao();
+            productCategoryDataStore =  database.getProductCategoryDao();
+            supplierDataStore = database.getSupplierDao();
+        }else {
+            productDataStore = ProductDaoMem.getInstance();
+            productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+            supplierDataStore = SupplierDaoMem.getInstance();
         }
-        ProductService productService = new ProductService(database.getProductDao(), database.getProductCategoryDao(), database.getSupplierDao());
+        ProductService productService = new ProductService(productDataStore, productCategoryDataStore, supplierDataStore);
         List<Product>filteredProducts =  productService.getFilteredProducts(Integer.parseInt(categoryId), Integer.parseInt(supplierId));
         Gson gson = new Gson();
         String json = gson.toJson(filteredProducts);

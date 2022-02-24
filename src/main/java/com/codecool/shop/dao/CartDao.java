@@ -13,7 +13,7 @@ public interface CartDao {
     void add(Product product, int amount);
     void edit(int value, int id);
     Product find(int id);
-    void remove(int id);
+
     BigDecimal getTotalCartPrice();
     List<CartProduct> getAll();
 }
