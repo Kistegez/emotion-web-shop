@@ -154,5 +154,5 @@ function checkUserInSession() {
         document.getElementById("user-name").style.display = "none"
         document.getElementById("name-place").innerText = ""
         }
-    }
+}
 
