@@ -25,9 +25,11 @@ CREATE TABLE public.product_category (
     description text
 );
 
-DROP TABLE IF EXISTS public.user CASCADE;
-CREATE TABLE public.user (
+DROP TABLE IF EXISTS public.shop_user CASCADE;
+CREATE TABLE public.shop_user (
     id serial NOT NULL PRIMARY KEY,
+    user_name text,
+    password text,
     first_name text,
     last_name text,
     email text,
@@ -54,7 +56,7 @@ ALTER TABLE ONLY public.product
     ADD CONSTRAINT fk_product_category_id FOREIGN KEY (product_category_id) REFERENCES public.product_category(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY public.cart
-    ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES public.user(id) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES public.shop_user(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY public.cart
     ADD CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES public.product(id) ON DELETE CASCADE;

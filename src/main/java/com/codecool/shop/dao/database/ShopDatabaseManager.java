@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 import com.codecool.shop.dao.ProductCategoryDao;
+import com.codecool.shop.service.UserService;
 import org.postgresql.ds.PGSimpleDataSource;
 
 public class ShopDatabaseManager {
@@ -11,6 +12,8 @@ public class ShopDatabaseManager {
     private ProductDaoJdbc productDao;
     private ProductCategoryDaoJdbc productCategoryDao;
     private SupplierDaoJdbc supplierDao;
+    private UserDaoJdbc userDao;
+
 
 
     public void setup() throws SQLException {
@@ -19,7 +22,8 @@ public class ShopDatabaseManager {
         supplierDao = new SupplierDaoJdbc(dataSource);
         productDao = new ProductDaoJdbc(dataSource, productCategoryDao, supplierDao);
         cartDao = new CartDaoJdbc(dataSource, productDao);
-
+        UserDaoJdbc userDao = UserDaoJdbc.getInitialInstance(dataSource);
+        UserService.createInitialInstance(userDao);
     }
 
     private DataSource connect() throws SQLException {
@@ -51,7 +55,13 @@ public class ShopDatabaseManager {
         return supplierDao;
     }
 
+
     public CartDaoJdbc getCartDao() {
         return cartDao;
+    }
+  
+    public UserDaoJdbc getUserDao() {
+        return userDao;
+
     }
 }
