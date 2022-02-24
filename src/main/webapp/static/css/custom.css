@@ -171,6 +171,13 @@ h1{
     color: black;
 }
 
+#save{
+    background-color:#9ece5d;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
 .close_button{
     background-color:#9ece5d;
     border: 2px solid black;
@@ -187,6 +194,20 @@ h1{
 
 
 #login{
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#log-close{
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#reg-close{
     background-color:#ffd800;
     border: 2px solid black;
     border-radius: 10px;
