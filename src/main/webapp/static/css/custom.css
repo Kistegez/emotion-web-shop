@@ -209,3 +209,10 @@ input[type=text], input[type=password] {
     display: block;
 
 }
+
+#logout {
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}

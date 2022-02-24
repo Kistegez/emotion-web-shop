@@ -37,5 +37,26 @@ public class UserDaoJdbc implements UserDao {
             throw new RuntimeException();
         }
     }
+
+    @Override
+    public User find(String name, String password) {
+        try(Connection connection = dataSource.getConnection()){
+            String sql = "SELECT id, user_name, email, password FROM shop_user WHERE user_name = ? AND password = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, name);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if (!rs.next()) {
+                return null;
+            }
+            User user = new User(rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4));
+            user.setId(rs.getInt(1));
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 

@@ -15,23 +15,22 @@
                 <div class="modal-header border-bottom-0">
                     <h5 class="modal-title" id="exampleModalLabel" >
                         Login
-                    </h5>
-                    <div id="login-error"></div>
+                    </h5><br>
+                    <p id="login_error"></p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div id="login-input">
-                    <label for="log_name"><b>User name</b></label>
-                    <input type="text" placeholder="Enter User name" name="user_name" id="log_name" size="30" required><br>
+                    <label for="log-name"><b>User name</b></label>
+                    <input type="text" placeholder="Enter User name" name="user-name" id="log-name" size="30" required><br>
 
-                    <label for="log_psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="log_psw" size="30" required>
+                    <label for="log-psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="log-psw" size="30" required>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-between">
-                    <button type="button" class="close_button" data-dismiss="modal">Close</button>
-                    <a href=/payment>
-                        <button id="cart-checkout" data-toggle="modal" data-target="#loginModal" type="button"
+                    <button type="button" id="log-close" class="close-button" data-dismiss="modal">Close</button>
+                        <button id="login" data-target="#loginModal" type="button"
                                 class="btn btn-success">Login
                         </button>
                     </a>

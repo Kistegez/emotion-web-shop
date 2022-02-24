@@ -63,12 +63,14 @@ function setupEventListeners() {
     document.getElementById("save").addEventListener("click", saveCart)
     addEventCartButtons();
     document.getElementById("register").addEventListener("click",registration)
+    document.getElementById("login").addEventListener("click",login)
+    document.getElementById("logout").addEventListener("click",logout)
 
 }
 
 async function loadFilteredProducts() {
-    let categoryId = document.getElementById('categories').value;
-    let supplierId = document.getElementById('suppliers').value;
+    let categoryId = document.getElementById("categories").value;
+    let supplierId = document.getElementById("suppliers").value;
     let filterProduct = await getProductsByFilter(categoryId, supplierId);
     showProducts(filterProduct);
     addEventListenerToAll(".cart-btn", addToCart);
@@ -82,7 +84,7 @@ async function addToCart(e) {
 function addEventListenerToAll(selector, func) {
     const elements = document.querySelectorAll(selector)
     for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener('click', func)
+        elements[i].addEventListener("click", func)
     }
 }
 
@@ -93,16 +95,64 @@ async function saveCart() {
 }
 
 
-async function registration(e) {
+async function registration() {
     let error = document.getElementById("register-error")
-    let name = document.getElementById("reg_name").value
+    let name = document.getElementById("reg-name").value
     let email = document.getElementById("email").value
-    let password = document.getElementById("reg_psw").value
+    let password = document.getElementById("reg-psw").value
     if (email.includes('@') && email.includes('.')) {
-        error.innerText= "Successfully"
-        await postResponse("/api/registration", {"name" : name, "email" : email, "password" : password})
+        error.innerText = ""
+        document.getElementById("reg-name").value = ""
+        document.getElementById("email").value = ""
+        document.getElementById("reg-psw").value = ""
+        document.getElementById("reg-close").click()
+        await postResponse("/api/registration", {"name": name, "email": email, "password": password}).then()
+
     } else {
         error.innerText = "Wrong email format. Please try again!"
     }
 }
+
+async function login() {
+    let name = document.getElementById("log-name").value
+    let password = document.getElementById("log-psw").value
+    let login = await postResponse("/api/login", { "name" : name, "password" : password})
+    if (login == null) {
+        document.getElementById("login-error").innerText = "Email or Password was incorrect! Please try again!"
+    }
+    else {
+        console.log(login)
+        document.getElementById("log-name").value = ""
+        document.getElementById("log-psw").value = ""
+        localStorage.setItem("user_id", login.id)
+        localStorage.setItem("user_name", login.name)
+        document.getElementById("log-close").click()
+        document.getElementById("user-name").style.display = "block"
+        document.getElementById("name-place").innerText = login.name
+        checkUserInSession()
+    }
+}
+
+function logout() {
+    localStorage.removeItem("user_id")
+    localStorage.removeItem("user_name")
+    checkUserInSession()
+
+}
+
+
+function checkUserInSession() {
+    if (localStorage.getItem("user_id") != null) {
+        document.getElementById("login-modal").style.display = "none"
+        document.getElementById("register-modal").style.display = "none"
+        document.getElementById("logout").style.display = "block"
+
+    } else {
+        document.getElementById("login-modal").style.display = "block"
+        document.getElementById("register-modal").style.display = "block"
+        document.getElementById("logout").style.display = "none"
+        document.getElementById("user-name").style.display = "none"
+        document.getElementById("name-place").innerText = ""
+        }
+    }
 

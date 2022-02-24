@@ -23,6 +23,10 @@ public class UserService {
     public void add(User user) {
         userDao.add(user);
     }
+
+    public User find(String name, String password){
+        return userDao.find(name, password);
+    }
 }
 
 
