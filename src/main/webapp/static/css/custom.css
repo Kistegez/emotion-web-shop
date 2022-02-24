@@ -122,11 +122,17 @@ h1{
 }
 
 #cart{
-    margin-left: 43%;
+    margin-left: 13%;
     background-color:#ffd800;
     border: 2px solid black;
     border-radius: 10px;
     color: black;
+}
+
+#user-name{
+    margin-top: 15px;
+    margin-left: 60px;
+    font-size:larger;
 }
 
 #suppliers{
@@ -211,6 +217,27 @@ input[type=text], input[type=password] {
 }
 
 #logout {
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#login-modal {
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#register-modal {
+    background-color:#ffd800;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+#register {
     background-color:#ffd800;
     border: 2px solid black;
     border-radius: 10px;

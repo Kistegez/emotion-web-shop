@@ -128,7 +128,7 @@ async function login() {
         localStorage.setItem("user_name", login.name)
         document.getElementById("log-close").click()
         document.getElementById("user-name").style.display = "block"
-        document.getElementById("name-place").innerText = login.name
+        document.getElementById("name-place").innerText = "Hello " + login.name + "!"
         checkUserInSession()
     }
 }
