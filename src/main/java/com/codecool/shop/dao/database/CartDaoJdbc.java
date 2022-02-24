@@ -26,15 +26,14 @@ public class CartDaoJdbc{
     public void add(CartProduct product, int id) {
 
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "INSERT INTO cart (shop_user_id, product_id, amount) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO cart (user_id, product_id, amount) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, 1);
+            statement.setInt(1, id);
             statement.setInt(2, product.getId());
             statement.setInt(3, product.getAmount());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             resultSet.next();
-            product.setId(resultSet.getInt(1));
         } catch (SQLException e) {
             throw new RuntimeException("Error while adding a new product",e);
         }
@@ -43,9 +42,9 @@ public class CartDaoJdbc{
 
     public void edit(List<CartProduct> products, int id) {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "DELETE FROM cart WHERE shop_user_id = ?";
+            String sql = "DELETE FROM cart WHERE user_id = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, 1);
+            statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error while finding one supplier", e);
@@ -57,14 +56,16 @@ public class CartDaoJdbc{
     }
 
 
-    public List<CartProduct> getAll() {
+    public List<CartProduct> getAll(int userId) {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "SELECT id, shop_user_id, product_id, amount FROM cart";
-            ResultSet rs = conn.createStatement().executeQuery(sql);
+            String sql = "SELECT id, user_id, product_id, amount FROM cart WHERE user_id = ?";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, userId);
+            ResultSet rs = st.executeQuery();
             List<CartProduct> result = new ArrayList<>();
             while (rs.next()) {
                 CartProduct oneCartProduct = new CartProduct(new Product(productDao.find(rs.getInt(3))), rs.getInt(4));
-                oneCartProduct.setId(rs.getInt(1));
+                oneCartProduct.setId(rs.getInt(3));
                 result.add(oneCartProduct);
             }
             return result;
