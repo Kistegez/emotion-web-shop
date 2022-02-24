@@ -60,6 +60,7 @@ function editTotalPrice(){
 function setupEventListeners() {
     document.getElementById("categories").addEventListener("change", loadFilteredProducts)
     document.getElementById("suppliers").addEventListener("change", loadFilteredProducts)
+    document.getElementById("save").addEventListener("click", saveCart)
     addEventCartButtons();
 
 }
@@ -82,6 +83,11 @@ function addEventListenerToAll(selector, func) {
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', func)
     }
+}
+
+async function saveCart() {
+    await fetch(`/saveCart?user_id=${1}`)
+
 }
 
 

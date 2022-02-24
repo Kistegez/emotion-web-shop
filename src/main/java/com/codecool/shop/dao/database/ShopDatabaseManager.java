@@ -15,10 +15,10 @@ public class ShopDatabaseManager {
 
     public void setup() throws SQLException {
         DataSource dataSource = connect();
-        cartDao = new CartDaoJdbc(dataSource);
         productCategoryDao = new ProductCategoryDaoJdbc(dataSource);
         supplierDao = new SupplierDaoJdbc(dataSource);
         productDao = new ProductDaoJdbc(dataSource, productCategoryDao, supplierDao);
+        cartDao = new CartDaoJdbc(dataSource, productDao);
 
     }
 
@@ -49,5 +49,9 @@ public class ShopDatabaseManager {
 
     public SupplierDaoJdbc getSupplierDao() {
         return supplierDao;
+    }
+
+    public CartDaoJdbc getCartDao() {
+        return cartDao;
     }
 }
